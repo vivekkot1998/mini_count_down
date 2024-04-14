@@ -1,0 +1,17 @@
+.centered-div {
+    /* display: inline-block;
+    height: 200px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 15% 35%; */
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Set height to full viewport height */
+}
+
+.content {
+    /* Additional styles for the content inside the centered div */
+    text-align: center;
+  }
