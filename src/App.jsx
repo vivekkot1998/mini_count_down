@@ -33,6 +33,40 @@ const Countdown = () => {
     return () => clearInterval(intervalId);
   }, []); // Empty dependency array to run the effect only once
 
+  function requestNotificationPermission() {
+    if ('Notification' in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          console.log('Notification permission granted');
+        } else {
+          console.warn('Notification permission denied');
+        }
+      });
+    }
+  }
+  function showNotification(title, options) {
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification(title, options);
+    }
+  }
+  // Call requestNotificationPermission when your app loads
+  requestNotificationPermission();
+ // Function to show notification every 2 hours
+function showPeriodicNotification() {
+  // Calculate the next notification time
+  // const currentTime = new Date();
+  //const nextNotificationTime = new Date(currentTime.getTime() + 2 * 60 * 60 * 1000); // Add 2 hours
+  
+  // Show the notification
+  showNotification('Reminder', {
+    body: 'Check you progress',
+    icon: 'public/android-chrome-512x512.png', // Optional icon path
+  });
+}
+
+// Call showPeriodicNotification every 2 hours
+setInterval(showPeriodicNotification, 2 * 60 * 60 * 1000);
+
   return (
     <div className='centered-div'>
       <div className='content'>
