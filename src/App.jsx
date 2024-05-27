@@ -71,7 +71,9 @@ setInterval(showPeriodicNotification, 2 * 60 * 60 * 1000);
     <div className='centered-div'>
       <div className='content'>
       <h1>Countdown</h1>
-      <h3>Days left: {daysLeft}</h3>
+      <h3>Coding Ninjas: {daysLeft} (1st Nov 2024)</h3>
+      <h3>DSA: {daysLeft - 91} (1st Aug 2024)</h3>
+      <h3>Job: {daysLeft} (1st Nov 2024)</h3>
       </div>
       
     </div>
